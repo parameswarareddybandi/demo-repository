@@ -1,11 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
+import GreetUser from './GreetUser';
 
 export default function App() {
+  const [name, setName] = useState('');
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
+      <TextInput placeholder=' Enter User Name ' value={name} onChangeText={(text) => setName(text)} />
+      <GreetUser name={name} />
     </View>
   );
 }
